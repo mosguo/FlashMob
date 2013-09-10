@@ -1,0 +1,51 @@
+<div data-role="view" id="stores" data-title="附近活動" data-show="storesShow" data-init="storesInit" data-stretch="true">
+	<header data-role="header">
+	<div data-role="navbar">
+		<ul data-role="buttongroup" data-index="0" data-align="center" id="btnStoreViewToggle">
+            <a id="buttonAddNewCard" data-role="button" href="views/addCardView.html"  data-align="right" data-icon="add"></a>   
+            <span data-role="view-title"></span>
+            <a data-role="backbutton" data-align="left">Back</a>
+		</ul>
+	</div>
+    </header>
+   
+    <div data-role="content">
+    	<div class="offline">
+           請重新連結網路.
+        </div>
+        <div id="stores">
+            <div id="map">
+			</div>
+            <div data-role="scroller">
+                <ul data-role="listview" id="storeList" data-style="inset" style="display: none">
+                </ul>
+            </div>    
+        </div>           
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="tmplStoreListItem">
+        #: data.Name #<br />
+        #: data.WalkInAddressDisplayStrings[0] #<br />
+        <span>
+        #if(OpenNow === 1){#
+            Open
+        #}else{#
+            Closed
+        #}#
+        </span>
+</script>
+
+<script>
+    function storesShow(){
+        onStoresShow();
+
+        if(true === true){
+            $("#stores").show();
+            $(".offline").hide();
+        }else{
+            $("#stores").hide();
+            $(".offline").show();
+        }
+    }
+</script>
